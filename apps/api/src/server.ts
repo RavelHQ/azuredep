@@ -3,7 +3,7 @@ import express from "express";
 import morgan from "morgan";
 import cors from "cors";
 
-export const createServer = () => {
+export const createServer: () => express.Express = () => {
   const app = express();
   app
     .disable("x-powered-by")
