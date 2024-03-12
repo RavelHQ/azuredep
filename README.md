@@ -18,5 +18,4 @@ docker run -d -p 8080:8080 twofoldzuredep.azurecr.io/api:v6
 
 <!-- az acr update -n twofoldzuredep.azurecr.io --admin-enabled true -->
 
-
-  <!-- "loginServer": "twofoldzuredep.azurecr.io", -->
+<!-- "loginServer": "twofoldzuredep.azurecr.io", -->
