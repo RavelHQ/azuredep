@@ -7,11 +7,12 @@ az acr login --name twofoldzuredep
 
 docker build \
 --file apps/api/Dockerfile \
---tag twofoldzuredep.azurecr.io/api:v6 \
+--tag twofoldzuredep.azurecr.io/api:v8 \
+--platform=linux/amd64 \
 .
-docker push twofoldzuredep.azurecr.io/api:v6
+docker push twofoldzuredep.azurecr.io/api:v8
 
-docker run -d -p 8080:8080 twofoldzuredep.azurecr.io/api:v6
+docker run -d -p 8080:8080 twofoldzuredep.azurecr.io/api:v7
 
 
 
