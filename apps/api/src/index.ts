@@ -1,8 +1,8 @@
 import { createServer } from "./server";
 
-const port = process.env.PORT || 3001;
+const port = 8080;
 const server = createServer();
 
-server.listen(port, () => {
+server.listen(port, '0.0.0.0', () => {
   console.log(`api running on ${port}`);
 });

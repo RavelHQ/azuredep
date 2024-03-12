@@ -7,10 +7,14 @@ az acr login --name twofoldzuredep
 
 docker build \
 --file apps/api/Dockerfile \
---tag twofoldzuredep.azurecr.io/api:v1 \
+--tag twofoldzuredep.azurecr.io/api:v6 \
 .
+docker push twofoldzuredep.azurecr.io/api:v6
 
-docker run -d -p 3001:3001 twofoldzuredep.azurecr.io/api:v1
+docker run -d --expose 8080 twofoldzuredep.azurecr.io/api:v6
+
+
+
 
 <!-- az acr update -n twofoldzuredep.azurecr.io --admin-enabled true -->
 
