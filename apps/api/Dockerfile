@@ -18,19 +18,19 @@ RUN apk add --no-cache libc6-compat
 RUN apk update
 
 WORKDIR /app
-RUN npm i pnpm --global
+RUN npm i pnpm turbo --global
 
 # First install dependencies (as they change less often)
 COPY .gitignore .gitignore
 COPY --from=builder /app/out/json/ .
-COPY --from=builder /app/out/pnpm-lock.yaml ./pnpm-lock.yaml
+COPY --from=builder /app/out/json/pnpm-lock.yaml ./pnpm-lock.yaml
 RUN pnpm install
 
 # Build the project and its dependencies
 COPY --from=builder /app/out/full/ .
 COPY turbo.json turbo.json
 
-RUN pnpm turbo build --filter=api...
+RUN turbo build --filter=api...
 
 FROM base AS runner
 WORKDIR /app
@@ -40,5 +40,11 @@ RUN addgroup --system --gid 1001 expressjs
 RUN adduser --system --uid 1001 expressjs
 USER expressjs
 COPY --from=installer /app .
+
+ENV PORT=8080
+EXPOSE 8080
+
+# set hostname to localhost
+ENV HOSTNAME "0.0.0.0"
 
 CMD node apps/api/dist/index.js

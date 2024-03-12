@@ -3,5 +3,7 @@
     {
       "mode": "auto"
     }
-  ]
+  ],
+  "appService.defaultWebAppToDeploy": "/subscriptions/a138ac88-313c-45fd-8a68-6dc29f077b3d/resourceGroups/myResourceGroup/providers/Microsoft.Web/sites/twofoldzuredep/subscriptions/a138ac88-313c-45fd-8a68-6dc29f077b3d/resourceGroups/appsvc_linux_centralus_basic/providers/Microsoft.Web/sites/twofoldazuredep2",
+  "appService.deploySubpath": "."
 }
